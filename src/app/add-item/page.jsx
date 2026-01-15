@@ -113,7 +113,7 @@ export default function AddItemPage() {
         description: formData.description,
         price: parseFloat(formData.price),
         category: formData.category,
-        image: formData.image ? URL.createObjectURL(formData.image) : '/images/products/placeholder.jpg',
+        image: formData.image ? `/images/products/placeholder.jpg` : '/images/products/placeholder.jpg',
         rating: 4.5,
         reviewCount: 0,
         badge: 'NEW',

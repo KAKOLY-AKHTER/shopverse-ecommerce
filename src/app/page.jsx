@@ -10,8 +10,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const heroSlides = [
     {
-        image: '/images/products/bg3.jpg',
-     
+      image: '/images/products/bg1.jpg' ,
       title: 'Welcome to ShopVerse',
       subtitle: 'Discover amazing products at unbeatable prices. Your one-stop shop for everything you need.'
     },
@@ -21,7 +20,8 @@ export default function Home() {
       subtitle: 'Experience excellence with our carefully curated collection of top-rated items.'
     },
     {
-     image: '/images/products/bg1.jpg',
+     
+      image: '/images/products/bg3.jpg',
       title: 'Exclusive Deals & Offers',
       subtitle: 'Save big with our special discounts and limited-time offers on trending products.'
     }
@@ -31,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 3000); // Change slide every 5 seconds
 
     return () => clearInterval(timer);
   }, [heroSlides.length]);
