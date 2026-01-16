@@ -1,225 +1,232 @@
 # ShopVerse - Premium E-commerce Application
 
-A modern e-commerce platform built with Next.js 16 (App Router) and Express.js, featuring authentication, product management, and a responsive design.
+A modern, full-featured e-commerce platform built with Next.js 16, featuring authentication, product management, cart, and wishlist functionality.
 
-## 🚀 Features
+## 🚀 Live Demo
+
+- **Live Site**: [https://shopverse-ecommerce-nx3jxt85y-kakolys-projects.vercel.app](https://shopverse-ecommerce-nx3jxt85y-kakolys-projects.vercel.app)
+- **GitHub Repository**: [https://github.com/KAKOLY-AKHTER/shopverse-ecommerce](https://github.com/KAKOLY-AKHTER/shopverse-ecommerce)
+
+## 🔐 Login Credentials
+
+For testing the application, use these credentials:
+
+- **Email**: `admin@shopverse.com`
+- **Password**: `password123`
+
+## 📋 Project Description
+
+ShopVerse is a comprehensive e-commerce application that provides a seamless shopping experience with modern UI/UX design. The application features product browsing, detailed product views, shopping cart, wishlist, and user authentication. Built with Next.js 16 App Router, it demonstrates best practices in modern web development.
+
+## ✨ Key Features
 
 ### Core Features
-- **Landing Page**: Beautiful homepage with 7 sections (Hero, Features, Products Preview, About, Testimonials, Newsletter, CTA)
-- **Authentication**: Mock login system with cookie-based session management
-- **Product Catalog**: Browse and search products with filtering and sorting
-- **Product Details**: Comprehensive product pages with specifications and features
-- **Protected Routes**: Add new products (authentication required)
-- **Responsive Design**: Mobile-first design with Tailwind CSS
+1. **Landing Page** - 7+ sections including Hero, Features, Products, About, Testimonials, Newsletter, and CTA
+2. **Authentication System** - Mock login with hardcoded credentials + NextAuth.js with Google OAuth
+3. **Product Listing** - Browse products with search, filter, sort, and pagination
+4. **Product Details** - Detailed product view with images, specifications, and features
+5. **Add Product** - Protected page for authenticated users to add new products
+6. **Toast Notifications** - Real-time feedback for user actions
 
-### Authentication
-- **Mock Login Credentials**:
-  - Email: `admin@shopverse.com`
-  - Password: `password123`
-- **NextAuth.js Integration**: 
-  - Google OAuth (configured, needs real credentials)
-  - Facebook OAuth (configured, needs real credentials)
-  - Credentials provider for mock login
-- Session-based authentication with JWT
-- Protected routes with middleware
-- Automatic redirect for unauthenticated users
+### Bonus Features
+- 🛒 **Shopping Cart** - Add/remove items, update quantities, view total
+- ❤️ **Wishlist** - Save favorite products for later
+- 🌓 **Dark/Light Theme** - Toggle between themes with persistent storage
+- 🎨 **Animations** - Smooth Framer Motion animations throughout
+- 📱 **Responsive Design** - Mobile-first, fully responsive layout
+- 🎯 **Advanced Filtering** - Search, category filter, and multiple sort options
+- 📄 **Pagination** - Efficient product browsing with pagination
+- 🎭 **Hero Slider** - Auto-sliding background images with dynamic content
 
-### Pages & Routes
-- `/` - Landing page (public)
-- `/items` - Product catalog (public)
-- `/items/[id]` - Product details (public)
-- `/login` - Authentication page (public)
-- `/add-item` - Add new product (protected)
+## 🛠️ Technologies Used
 
-## 🛠 Technologies Used
-
-- **Frontend**: Next.js 16 (App Router), React 19, Tailwind CSS
-- **Backend**: Express.js with CORS support
-- **Authentication**: NextAuth.js with Google, Facebook, and Credentials providers
-- **Session Management**: JWT-based sessions
-- **Notifications**: React Hot Toast
-- **Styling**: Tailwind CSS with responsive design
-- **Icons**: Heroicons (SVG)
+- **Frontend Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Authentication**: NextAuth.js
+- **State Management**: React Context API
+- **Storage**: localStorage for cart/wishlist
+- **Notifications**: react-hot-toast
+- **Image Handling**: Next.js Image component
+- **Deployment**: Vercel
 
 ## 📦 Installation & Setup
 
 ### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18+ installed
+- npm or yarn package manager
 
-### Frontend Setup
-1. Clone the repository
+### Steps
+
+1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd next-js-scic-job-task
+git clone https://github.com/KAKOLY-AKHTER/shopverse-ecommerce.git
+cd shopverse-ecommerce
 ```
 
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Start the development server
-```bash
-npm run dev
-```
-
-The application will be available at `http://localhost:3000`
-
-### Backend Setup (Optional)
-1. Navigate to the server directory
-```bash
-cd server
-```
-
-2. Install server dependencies
+2. **Install dependencies**
 ```bash
 npm install
+# or
+yarn install
 ```
 
-3. Start the Express server
+3. **Set up environment variables**
+
+Create a `.env.local` file in the root directory:
+
+```env
+NEXTAUTH_SECRET=your-secret-key-here
+NEXTAUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+```
+
+4. **Run the development server**
 ```bash
 npm run dev
+# or
+yarn dev
 ```
 
-The API will be available at `http://localhost:3001`
+5. **Open your browser**
 
-## 🔗 API Endpoints
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-### Items API
-- `GET /api/items` - Get all items
-- `GET /api/items/:id` - Get item by ID
-- `POST /api/items` - Create new item (requires authentication)
-- `PUT /api/items/:id` - Update item (requires authentication)
-- `DELETE /api/items/:id` - Delete item (requires authentication)
-
-### Health Check
-- `GET /api/health` - Server health status
-
-## 🎯 Usage
-
-### Testing Authentication
-1. Navigate to `/login`
-2. **Option 1 - Mock Credentials:**
-   - Email: `admin@shopverse.com`
-   - Password: `password123`
-3. **Option 2 - Social Login (Demo):**
-   - Click Google or Facebook buttons to see demo messages
-   - For real OAuth, add credentials to `.env.local`
-4. After successful login, you'll be redirected to the items page
-5. Access the "Add Item" page from the navigation (only available when logged in)
-
-### Setting Up Real OAuth (Optional)
-1. **Google OAuth:**
-   - Go to [Google Cloud Console](https://console.cloud.google.com/)
-   - Create a new project or select existing
-   - Enable Google+ API
-   - Create OAuth 2.0 credentials
-   - Add `http://localhost:3000/api/auth/callback/google` to authorized redirect URIs
-   - Update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `.env.local`
-
-2. **Facebook OAuth:**
-   - Go to [Facebook Developers](https://developers.facebook.com/)
-   - Create a new app
-   - Add Facebook Login product
-   - Add `http://localhost:3000/api/auth/callback/facebook` to Valid OAuth Redirect URIs
-   - Update `FACEBOOK_CLIENT_ID` and `FACEBOOK_CLIENT_SECRET` in `.env.local`
-
-### Adding Products
-1. Ensure you're logged in
-2. Navigate to `/add-item`
-3. Fill in the product details:
-   - Name (required)
-   - Description (required)
-   - Price (required)
-   - Category (required)
-   - Features (optional, can add multiple)
-   - Stock status
-   - Product image (optional)
-4. Submit the form to add the product
-
-### Browsing Products
-1. Visit `/items` to see the product catalog
-2. Use the search bar to find specific products
-3. Sort products by name, price, or rating
-4. Click on any product to view detailed information
-
-## 🏗 Project Structure
+## 📁 Project Structure
 
 ```
+shopverse-ecommerce/
+├── public/
+│   └── images/
+│       └── products/          # Product images
 ├── src/
-│   ├── app/
-│   │   ├── components/          # Reusable components
-│   │   │   ├── Navbar.js       # Navigation component
-│   │   │   └── Footer.js       # Footer component
-│   │   ├── items/              # Product-related pages
-│   │   │   ├── page.jsx        # Product catalog
-│   │   │   └── [id]/page.jsx   # Product details
-│   │   ├── login/              # Authentication
-│   │   │   └── page.jsx        # Login page
-│   │   ├── add-item/           # Protected route
-│   │   │   └── page.jsx        # Add product form
-│   │   ├── globals.css         # Global styles
-│   │   ├── layout.js           # Root layout
-│   │   ├── page.js             # Landing page
-│   │   └── middleware.js       # Route protection
-├── server/                     # Express.js API
-│   ├── server.js              # Main server file
-│   └── package.json           # Server dependencies
-├── public/                    # Static assets
-└── README.md                  # This file
+│   └── app/
+│       ├── add-item/          # Protected: Add product page
+│       ├── api/
+│       │   └── auth/          # NextAuth API routes
+│       ├── cart/              # Shopping cart page
+│       ├── components/        # Reusable components
+│       │   ├── Navbar.jsx
+│       │   ├── Footer.jsx
+│       │   └── SessionWrapper.jsx
+│       ├── context/           # React Context providers
+│       │   ├── AuthContext.jsx
+│       │   ├── CartContext.jsx
+│       │   └── ThemeContext.jsx
+│       ├── data/              # Product data
+│       │   └── products.js
+│       ├── items/             # Product listing & details
+│       │   ├── page.jsx       # List page
+│       │   └── [id]/          # Dynamic detail page
+│       ├── login/             # Login page
+│       ├── wishlist/          # Wishlist page
+│       ├── layout.jsx         # Root layout
+│       ├── page.jsx           # Landing page
+│       └── globals.css        # Global styles
+├── middleware.js              # Route protection
+└── next.config.mjs            # Next.js configuration
 ```
 
-## 🎨 Design Features
+## 🗺️ Route Summary
 
-- **Responsive Design**: Mobile-first approach with breakpoints for all devices
-- **Modern UI**: Clean, professional design with consistent spacing and typography
-- **Interactive Elements**: Hover effects, transitions, and loading states
-- **Accessibility**: Semantic HTML and keyboard navigation support
-- **Toast Notifications**: User feedback for actions and errors
+### Public Routes (No Authentication Required)
+- `/` - Landing page with 7+ sections
+- `/items` - Product listing with search, filter, sort, pagination
+- `/items/[id]` - Individual product details
+- `/login` - Login page with mock and OAuth options
+- `/cart` - Shopping cart (accessible but data stored locally)
+- `/wishlist` - Wishlist (accessible but data stored locally)
 
-## 🔒 Security Features
+### Protected Routes (Authentication Required)
+- `/add-item` - Add new product form (redirects to login if not authenticated)
 
-- Route protection middleware
-- Cookie-based authentication
-- Input validation on forms
-- XSS protection through React's built-in sanitization
+## 🎯 Implemented Features
+
+### 1. Landing Page
+- **Hero Section**: Auto-sliding background images with dynamic titles
+- **Features Section**: Why choose ShopVerse with animated cards
+- **Featured Products**: Top 3 products showcase
+- **About Section**: Company information with statistics
+- **Testimonials**: Customer reviews
+- **Newsletter**: Email subscription form
+- **CTA Section**: Call-to-action for shopping
+
+### 2. Authentication
+- **Mock Login**: Hardcoded credentials stored in cookies
+- **NextAuth.js**: Google OAuth integration
+- **Session Management**: Persistent login state
+- **Protected Routes**: Middleware-based route protection
+- **Auto Redirect**: Redirect to items page after login
+
+### 3. Product Management
+- **Product Listing**: Grid layout with cards
+- **Search**: Real-time search by name/description
+- **Filter**: Category-based filtering
+- **Sort**: Multiple sort options (name, price, rating, popularity)
+- **Pagination**: 8 items per page with page navigation
+- **Product Details**: Full product information with image gallery
+- **Add Product**: Form to add new products (protected)
+
+### 4. Shopping Features
+- **Cart System**: Add/remove items, update quantities
+- **Wishlist**: Save favorite products
+- **Local Storage**: Persistent cart and wishlist data
+- **Count Badges**: Visual indicators in navbar
+- **Toast Notifications**: Feedback for all actions
+
+### 5. UI/UX Enhancements
+- **Dark/Light Theme**: Toggle with persistent preference
+- **Responsive Design**: Mobile, tablet, desktop optimized
+- **Animations**: Smooth transitions and hover effects
+- **Loading States**: Skeleton screens and spinners
+- **Error Handling**: User-friendly error messages
+- **Professional Design**: Gradient colors and modern styling
+
+## 🔧 Configuration
+
+### NextAuth Configuration
+The application uses NextAuth.js for authentication. Configure providers in `src/app/api/auth/[...nextauth]/route.js`.
+
+### Theme Configuration
+Theme settings are managed in `src/app/context/ThemeContext.jsx` with localStorage persistence.
+
+### Product Data
+Products are stored in `src/app/data/products.js`. New products added via the form are stored in localStorage.
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy with default settings
-4. Your app will be live at `https://your-app.vercel.app`
+The application is deployed on Vercel:
 
-### Environment Variables
-For production deployment, consider adding:
-- `NEXTAUTH_SECRET` - For NextAuth.js (if implementing)
-- `API_URL` - Backend API URL
-- `DATABASE_URL` - Database connection string
+1. Push code to GitHub
+2. Import repository in Vercel
+3. Add environment variables
+4. Deploy
 
-## 🔄 Future Enhancements
+## 📝 Notes
 
-- **NextAuth.js Integration**: Social login with Google/Facebook
-- **Database Integration**: PostgreSQL or MongoDB
-- **Payment Processing**: Stripe integration
-- **User Profiles**: User dashboard and order history
-- **Shopping Cart**: Add to cart functionality
-- **Reviews & Ratings**: User reviews system
-- **Admin Dashboard**: Product management interface
-- **Email Notifications**: Order confirmations and updates
-
-## 📝 License
-
-This project is created for demonstration purposes as part of a job task.
+- **Data Storage**: Products are stored in JSON file and localStorage (Express.js server is optional)
+- **Image Upload**: Currently uses placeholder images for new products
+- **Authentication**: Both mock and OAuth methods are implemented
+- **Responsive**: Fully responsive across all devices
+- **Performance**: Optimized with Next.js Image component and lazy loading
 
 ## 🤝 Contributing
 
-This is a demonstration project. For any questions or suggestions, please reach out to the developer.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
----
+## 📄 License
 
-**Demo Credentials for Testing:**
-- Email: `admin@shopverse.com`
-- Password: `password123`
+This project is open source and available under the MIT License.
+
+## 👤 Author
+
+**Kakoly Akhter**
+- GitHub: [@KAKOLY-AKHTER](https://github.com/KAKOLY-AKHTER)
+
+## 🙏 Acknowledgments
+
+- Next.js team for the amazing framework
+- Vercel for hosting
+- Tailwind CSS for styling utilities
+- Framer Motion for animations
