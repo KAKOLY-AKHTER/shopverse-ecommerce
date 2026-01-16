@@ -38,20 +38,20 @@ export default function Navbar() {
                 className="relative"
               >
                 {/* Stylish Logo Icon with Gradient */}
-                <div className="w-14 h-14 bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-500 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all mr-3 relative overflow-hidden">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all mr-2 sm:mr-3 relative overflow-hidden">
                   {/* Shine Effect */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent transform -skew-x-12 group-hover:translate-x-full transition-transform duration-700"></div>
-                  <svg className="w-8 h-8 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
                 </div>
               </motion.div>
               {/* Logo Text with Gradient */}
               <div className="flex flex-col">
-                <span className="text-3xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-500 bg-clip-text text-transparent tracking-tight leading-none">
+                <span className="text-xl sm:text-2xl md:text-3xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-500 bg-clip-text text-transparent tracking-tight leading-none">
                   ShopVerse
                 </span>
-                <span className="text-xs font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
+                <span className="text-[8px] sm:text-[9px] md:text-xs font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
                   Premium Shopping
                 </span>
               </div>
@@ -147,14 +147,14 @@ export default function Navbar() {
                     <motion.div 
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-xl border-2 border-gray-200"
+                      className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-xl border-2 border-gray-200 dark:border-gray-700"
                     >
-                      <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-500 rounded-full flex items-center justify-center">
-                        <span className="text-white font-black text-sm">
+                      <div className="w-7 h-7 bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-500 rounded-full flex items-center justify-center">
+                        <span className="text-white font-black text-xs">
                           {user.name.charAt(0).toUpperCase()}
                         </span>
                       </div>
-                      <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
+                      <span className="text-xs font-bold text-gray-800 dark:text-gray-200 hidden lg:inline">
                         {user.name}
                       </span>
                     </motion.div>
@@ -163,7 +163,7 @@ export default function Navbar() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleLogout}
-                    className="bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-500 hover:from-indigo-700 hover:via-purple-700 hover:to-purple-600 text-white px-6 py-2.5 rounded-xl text-sm font-black shadow-lg hover:shadow-xl transition-all uppercase tracking-wide"
+                    className="bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-500 hover:from-indigo-700 hover:via-purple-700 hover:to-purple-600 text-white px-4 py-2 rounded-xl text-xs font-black shadow-lg hover:shadow-xl transition-all uppercase tracking-wide"
                   >
                     Logout
                   </motion.button>
@@ -173,13 +173,13 @@ export default function Navbar() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="ml-4"
+                className="ml-2"
               >
                 <Link 
                   href="/login" 
-                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-500 hover:from-indigo-700 hover:via-purple-700 hover:to-purple-600 text-white px-8 py-2.5 rounded-xl text-sm font-black shadow-lg hover:shadow-xl transition-all uppercase tracking-wide flex items-center space-x-2"
+                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-500 hover:from-indigo-700 hover:via-purple-700 hover:to-purple-600 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black shadow-lg hover:shadow-xl transition-all uppercase tracking-wide flex items-center space-x-1 sm:space-x-2"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                   </svg>
                   <span>Login</span>
@@ -239,6 +239,29 @@ export default function Navbar() {
               className="md:hidden overflow-hidden"
             >
               <div className="px-2 pt-2 pb-4 space-y-2">
+                {/* Theme Toggle for Mobile */}
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={toggleTheme}
+                  className="w-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white px-4 py-3 rounded-xl font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center space-x-3 uppercase tracking-wide"
+                >
+                  {theme === 'light' ? (
+                    <>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                      </svg>
+                      <span>Dark Mode</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                      </svg>
+                      <span>Light Mode</span>
+                    </>
+                  )}
+                </motion.button>
+
                 <MobileNavLink href="/" icon={
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -254,6 +277,42 @@ export default function Navbar() {
                 }>
                   Products
                 </MobileNavLink>
+
+                {/* Cart Link for Mobile with Badge */}
+                <Link href="/cart">
+                  <motion.div
+                    whileTap={{ scale: 0.95 }}
+                    className="relative text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white px-4 py-3 rounded-xl font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center space-x-3 uppercase tracking-wide"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span>Cart</span>
+                    {getCartCount() > 0 && (
+                      <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-black rounded-full w-6 h-6 flex items-center justify-center ml-auto">
+                        {getCartCount()}
+                      </span>
+                    )}
+                  </motion.div>
+                </Link>
+
+                {/* Wishlist Link for Mobile with Badge */}
+                <Link href="/wishlist">
+                  <motion.div
+                    whileTap={{ scale: 0.95 }}
+                    className="relative text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white px-4 py-3 rounded-xl font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center space-x-3 uppercase tracking-wide"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                    <span>Wishlist</span>
+                    {wishlist.length > 0 && (
+                      <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-black rounded-full w-6 h-6 flex items-center justify-center ml-auto">
+                        {wishlist.length}
+                      </span>
+                    )}
+                  </motion.div>
+                </Link>
 
                 {isLoggedIn ? (
                   <>

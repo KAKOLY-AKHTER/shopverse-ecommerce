@@ -38,23 +38,23 @@ export function CartProvider({ children }) {
 
   // Add to cart
   const addToCart = (product, quantity = 1) => {
-    setCart(prevCart => {
-      const existingItem = prevCart.find(item => item.id === product.id);
-      
-      if (existingItem) {
-        // Update quantity if item already exists
-        toast.success('Cart updated!');
-        return prevCart.map(item =>
+    const existingItem = cart.find(item => item.id === product.id);
+    
+    if (existingItem) {
+      // Update quantity if item already exists
+      setCart(prevCart =>
+        prevCart.map(item =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
-        );
-      } else {
-        // Add new item
-        toast.success('Added to cart!');
-        return [...prevCart, { ...product, quantity }];
-      }
-    });
+        )
+      );
+      toast.success('Cart updated!');
+    } else {
+      // Add new item
+      setCart(prevCart => [...prevCart, { ...product, quantity }]);
+      toast.success('Added to cart!');
+    }
   };
 
   // Remove from cart
@@ -86,17 +86,15 @@ export function CartProvider({ children }) {
 
   // Add to wishlist
   const addToWishlist = (product) => {
-    setWishlist(prevWishlist => {
-      const exists = prevWishlist.find(item => item.id === product.id);
-      
-      if (exists) {
-        toast.error('Already in wishlist!');
-        return prevWishlist;
-      } else {
-        toast.success('Added to wishlist! ❤️');
-        return [...prevWishlist, product];
-      }
-    });
+    const exists = wishlist.find(item => item.id === product.id);
+    
+    if (exists) {
+      toast.error('Already in wishlist!');
+      return;
+    }
+    
+    setWishlist(prevWishlist => [...prevWishlist, product]);
+    toast.success('Added to wishlist! ❤️');
   };
 
   // Remove from wishlist
