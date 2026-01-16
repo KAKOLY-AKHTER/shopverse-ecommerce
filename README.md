@@ -4,7 +4,7 @@ A modern, full-featured e-commerce platform built with Next.js 16, featuring aut
 
 ## 🚀 Live Demo
 
-- **Live Site**: [https://shopverse-ecommerce-nx3jxt85y-kakolys-projects.vercel.app](https://shopverse-ecommerce-nx3jxt85y-kakolys-projects.vercel.app)
+- **Live Site**: [https://shopverse-ecommerce-ten.vercel.app/](https://shopverse-ecommerce-ten.vercel.app/)
 - **GitHub Repository**: [https://github.com/KAKOLY-AKHTER/shopverse-ecommerce](https://github.com/KAKOLY-AKHTER/shopverse-ecommerce)
 
 ## 🔐 Login Credentials
