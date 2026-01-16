@@ -80,7 +80,14 @@ NEXTAUTH_SECRET=your-secret-key-here
 NEXTAUTH_URL=http://localhost:3000
 GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
+FACEBOOK_CLIENT_ID=your-facebook-app-id
+FACEBOOK_CLIENT_SECRET=your-facebook-app-secret
 ```
+
+**Quick Setup:**
+- Copy `.env.example` to `.env.local`
+- For OAuth login: Follow `QUICK_OAUTH_SETUP.md` (5 minutes)
+- For testing: Use mock login (admin@shopverse.com / password123)
 
 4. **Run the development server**
 ```bash
