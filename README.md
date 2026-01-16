@@ -89,7 +89,19 @@ npm run dev
 yarn dev
 ```
 
-5. **Open your browser**
+5. **(Optional) Run the Express.js API server**
+
+In a separate terminal:
+
+```bash
+cd server
+npm install
+node server.js
+```
+
+The API server will run on `http://localhost:3001`
+
+6. **Open your browser**
 
 Navigate to [http://localhost:3000](http://localhost:3000)
 
@@ -205,7 +217,14 @@ The application is deployed on Vercel:
 
 ## 📝 Notes
 
-- **Data Storage**: Products are stored in JSON file and localStorage (Express.js server is optional)
+- **Data Storage**: Products can be fetched from Express.js API server (optional) or JSON file. New products are stored in localStorage for demo purposes.
+- **Express.js Server**: Optional backend server available in `/server` directory with full CRUD API
+- **API Endpoints**: 
+  - `GET /api/items` - Get all products
+  - `GET /api/items/:id` - Get single product
+  - `POST /api/items` - Add new product
+  - `PUT /api/items/:id` - Update product
+  - `DELETE /api/items/:id` - Delete product
 - **Image Upload**: Currently uses placeholder images for new products
 - **Authentication**: Both mock and OAuth methods are implemented
 - **Responsive**: Fully responsive across all devices
