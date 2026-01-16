@@ -8,7 +8,8 @@ export default withAuth(
     callbacks: {
       authorized: ({ token, req }) => {
         // Check if user is authenticated for protected routes
-        if (req.nextUrl.pathname.startsWith('/add-item')) {
+        if (req.nextUrl.pathname.startsWith('/add-item') || 
+            req.nextUrl.pathname.startsWith('/manage-products')) {
           return !!token;
         }
         return true;
@@ -18,5 +19,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ['/add-item/:path*']
+  matcher: ['/add-item/:path*', '/manage-products/:path*']
 };
